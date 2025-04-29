@@ -692,7 +692,7 @@ layout: two-cols-header
 在只有一个落子逻辑的情况下这是一个好方法
 
 ```
-REVERSI-2.1.2
+REVERSI-2.1.2\SRC
 ├─main
 │      Reversi.java
 │
@@ -716,20 +716,40 @@ REVERSI-2.1.2
 两种规则出现后，就需要分离规则和棋盘
 
 ```
-REVERSI-2.2.1
-│  Board.java
-│  Piece.java
-│  PieceImplReversi.java
-│  Point.java
-│  Rect.java
+REVERSI-2.2.1\SRC
+│  Reversi.java
 │
-├─enums
-│      Player.java
+├─controller
+│      GameController.java
+│      InitializationController.java
+│      InputController.java
+│      SettlementController.java
 │
-└─rules
-        Rule.java
-        RuleImplLandfill.java
-        RuleImplReversi.java
+├─META-INF
+│      MANIFEST.MF
+│
+├─model
+│  │  Board.java
+│  │  Piece.java
+│  │  PieceImplReversi.java
+│  │  Point.java
+│  │  Rect.java
+│  │
+│  ├─enums
+│  │      Player.java
+│  │
+│  └─rules
+│          Rule.java
+│          RuleImplLandfill.java
+│          RuleImplReversi.java
+│
+└─view
+        Pixel.java
+        PixelImplConsole.java
+        View.java
+        ViewImplConsole.java
+        Window.java
+        WindowImplConsole.java
 ```
 
 
