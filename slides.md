@@ -720,36 +720,16 @@ REVERSI-2.2.1\SRC
 │  Reversi.java
 │
 ├─controller
-│      GameController.java
-│      InitializationController.java
-│      InputController.java
-│      SettlementController.java
-│
-├─META-INF
-│      MANIFEST.MF
 │
 ├─model
 │  │  Board.java
 │  │  Piece.java
 │  │  PieceImplReversi.java
-│  │  Point.java
-│  │  Rect.java
-│  │
-│  ├─enums
-│  │      Player.java
 │  │
 │  └─rules
 │          Rule.java
 │          RuleImplLandfill.java
 │          RuleImplReversi.java
-│
-└─view
-        Pixel.java
-        PixelImplConsole.java
-        View.java
-        ViewImplConsole.java
-        Window.java
-        WindowImplConsole.java
 ```
 
 
