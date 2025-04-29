@@ -161,6 +161,77 @@ REVERSI\SRC
 
 ---
 
+# 代码结构分析：这样才好维护
+
+## GameController模块
+
+```mermaid
+classDiagram
+direction LR
+
+    class GameController {
+        -ArrayList<Board> boards
+        -BoardFactory boardFactory
+        +showBoard()
+        +setCurrentBoard(String input) boolean
+        +parseMove(String input) GameController
+        +placePiece() boolean
+        +parseCreate(String input) GameController
+        +createBoard() boolean
+    }
+
+    class Board {
+        -Rule rule
+        -Piece[][] pieceGrid
+        +placePiece(Move move) boolean
+        +isGameOver() boolean
+        +getWinner() Player
+        +show()
+    }
+
+    class BoardFactory {
+        -Rule rule
+        +createBoard() Board
+    }
+
+    class Rule {
+        <<interface>>
+        +getGameRule() GameRule
+        +getInputRule() InputRule
+        +getName() String
+    }
+
+    class GameRule {
+        <<interface>>
+        +initializeGrid(Piece[][])
+        +placePieceValidationCheck(Move, Player, Piece[][]) boolean
+        +placePiece(Move, Player, Piece[][]) boolean
+        +gameOverCheck(Player, Piece[][]) boolean
+    }
+
+    class InputRule {
+        <<interface>>
+        +ParseInput(String) Move
+    }
+
+    class Piece {
+        <<abstract>>
+        -Player player
+        +getPixel() Pixel
+    }
+
+    GameController --> Board
+    GameController --> BoardFactory
+    Board --> Rule
+    Board --> Piece
+    BoardFactory --> Rule
+    Rule *-- GameRule
+    Rule *-- InputRule
+    BoardFactory --> Board : «create»
+```
+
+---
+
 # 代码实现分析：具体长什么样呢？
 
 ### 依赖注入
